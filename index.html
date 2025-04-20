@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Eduardo7881 Home Page</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #0f0f0f;
+      color: #f1f1f1;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00ffcc;
+    }
+
+    .repo-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .repo {
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      padding: 1rem;
+      border: 1px solid #333;
+      box-shadow: 0 4px 10px rgba(0, 255, 200, 0.1);
+      transition: transform 0.2s;
+    }
+
+    .repo:hover {
+      transform: scale(1.02);
+      border-color: #00ffcc;
+    }
+
+    .repo a {
+      color: #00ffcc;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .repo p {
+      margin: 0.5rem 0;
+      color: #ccc;
+    }
+
+    .repo .stats {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    .repo .stats span {
+      margin-right: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Hello! I'm Eduardo7881! I code sometimes.</h1>
+  <br><h1>My Repositories:</h1>
+  <div class="repo-container" id="repos"></div>
+
+  <script>
+    const GITHUB_USERNAME = "Eduardo7881";
+    const repoContainer = document.getElementById("repos");
+
+    async function fetchRepos() {
+      try {
+        const res = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`);
+        const repos = await res.json();
+
+        repos.forEach(repo => {
+          const div = document.createElement("div");
+          div.className = "repo";
+
+          div.innerHTML = `
+            <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+            <p>${repo.description || "No description."}</p>
+            <div class="stats">
+              <span>⭐ ${repo.stargazers_count}</span>
+              <span>🍴 ${repo.forks_count}</span>
+            </div>
+          `;
+
+          repoContainer.appendChild(div);
+        });
+      } catch (err) {
+        console.error("Failed to fetch repos:", err);
+        repoContainer.innerHTML = "<p>Failed to load repositories.</p>";
+      }
+    }
+
+    fetchRepos();
+  </script>
+
+</body>
+</html>
