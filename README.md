@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @Eduardo7881
-- 👀 I’m interested in Minecraft and JavaScript Console Emulators🎮
-- 🌱 I’m currently learning Java, Python and JavaScript.
-- ⚡ Fun fact: Double tapping a youtube comment likes it. and another fact is i'm building a Minecraft 1.8 Client named Educlient. it's lightweight.
+- 👀 I’m interested in Minecraft Clients and JavaScript Emulators🎮
+- 🌱 I’m currently learning Java, C, C++ (basic) and JavaScript.
+- ⚡ Fun fact: I play Roblox. I generally play Forsaken, Die of Death, Doors, etc...
 
 <!---
 Eduardo7881/Eduardo7881 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
